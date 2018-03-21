@@ -145,17 +145,17 @@ function findDiff(example, puzzle) {
       img = new Image(),
       resultImg = new Image(),
       contentType = 'image/png';
-  // обрабатываем картинку-пример
+  // обрабатываем пример
   img.src = example.src;
   file1 = toCanvas(img);
   file1 = canvasToB64(file1);
   file1 = b64toBlob(file1, contentType);
-  // фоткаем и обрабатываем пазл
+  // фоткаем и обрабатываем результат
   html2canvas(puzzle, {
   onrendered: function(canvas) {
     file2 = canvasToB64(canvas);
     file2 = b64toBlob(file2, contentType);
-    // сравниваем и п
+    // сравниваем их
     compareAndResult(file1, file2);
     }
   });
@@ -171,7 +171,7 @@ function compareAndResult(file1, file2) {
     // .ignoreAntialiasing()
   	resultImg.src = data.getImageDataUrl();
 
-      // тестовая фигня
+      // тест
     // testImgInsert(resultImg);
 
     percent = 100 - Math.ceil(data.misMatchPercentage);
@@ -188,7 +188,7 @@ function compareAndResult(file1, file2) {
 }
 
 function testImgInsert(resultImg) {
-  // тестовая фигня
+  // тест
   document.querySelector(".modal-test").innerHTML = "<p>Тестовое окно (смотреть на несовпадения картинок)</p><button class='modal-close'></button>";
   document.querySelector(".modal-test").appendChild(resultImg);
   closeButOpen(".modal-test");

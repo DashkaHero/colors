@@ -189,7 +189,7 @@ function compareAndResult(file1, file2) {
 
 function testImgInsert(resultImg) {
   // тестовая фигня
-  document.querySelector(".modal-test").innerHTML = "<p>Тестовое окно (смотреть на несовпадения картинок). </p><p>P.S. Перемешивание пазлов пока отключил.</p><p>P.P.S. Включил переход на следующий уровень при >0% (временно)</p><button class='modal-close'></button>";
+  document.querySelector(".modal-test").innerHTML = "<p>Тестовое окно (смотреть на несовпадения картинок)</p><button class='modal-close'></button>";
   document.querySelector(".modal-test").appendChild(resultImg);
   closeButOpen(".modal-test");
   document.querySelector('#modal').classList.add('active');
